@@ -40,7 +40,7 @@ const products = [
     name: "Handmade Welcome Decorative Banner",
     desc: "Handmade Welcome Decorative Banner with Flowers – Wall Hanging for Home, Office, or Festive Décor Rangoli mats.",
     price: "₹499/-",
-    img: "welcome.jpg",
+    img: "Welcome.jpg",
     link: "https://amzn.in/d/4kJwaH2",
   },
   {
