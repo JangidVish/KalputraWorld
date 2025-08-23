@@ -50,10 +50,19 @@ const products = [
     img: "HalfCircle.jpg",
     link: "https://amzn.in/d/cWGK9Ry",
   },
+  // Add more products if needed
 ];
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [currentPage, setCurrentPage] = useState(1);
+  const productsPerPage = 6;
+
+  // Calculate pagination
+  const indexOfLast = currentPage * productsPerPage;
+  const indexOfFirst = indexOfLast - productsPerPage;
+  const currentProducts = products.slice(indexOfFirst, indexOfLast);
+  const totalPages = Math.ceil(products.length / productsPerPage);
 
   return (
     <div className="font-sans">
@@ -132,6 +141,7 @@ export default function App() {
           <img
             src="main.jpg"
             alt="Rangoli"
+            loading="lazy"
             className="rounded-lg shadow-lg w-full max-w-[500px] h-auto"
           />
         </div>
@@ -143,7 +153,7 @@ export default function App() {
           Our Festive Collection
         </h2>
         <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-8">
-          {products.map((product, idx) => (
+          {currentProducts.map((product, idx) => (
             <div
               key={idx}
               className="bg-white rounded-lg shadow hover:shadow-lg transition p-4 flex flex-col"
@@ -151,6 +161,7 @@ export default function App() {
               <img
                 src={product.img}
                 alt={product.name}
+                loading="lazy"
                 className="rounded-md mb-4 w-full h-[250px] object-cover"
               />
               <h3 className="font-semibold text-lg">{product.name}</h3>
@@ -165,6 +176,45 @@ export default function App() {
               </a>
             </div>
           ))}
+        </div>
+
+        {/* Pagination Controls */}
+        <div className="flex justify-center mt-8 space-x-2">
+          <button
+            disabled={currentPage === 1}
+            onClick={() => setCurrentPage(currentPage - 1)}
+            className={`px-3 py-1 rounded ${
+              currentPage === 1
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700"
+            }`}
+          >
+            Prev
+          </button>
+          {[...Array(totalPages)].map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setCurrentPage(i + 1)}
+              className={`px-3 py-1 rounded ${
+                currentPage === i + 1
+                  ? "bg-yellow-500 text-white"
+                  : "bg-gray-200 hover:bg-gray-300"
+              }`}
+            >
+              {i + 1}
+            </button>
+          ))}
+          <button
+            disabled={currentPage === totalPages}
+            onClick={() => setCurrentPage(currentPage + 1)}
+            className={`px-3 py-1 rounded ${
+              currentPage === totalPages
+                ? "bg-gray-300 text-gray-500 cursor-not-allowed"
+                : "bg-pink-600 text-white hover:bg-pink-700"
+            }`}
+          >
+            Next
+          </button>
         </div>
       </section>
 
@@ -197,7 +247,7 @@ export default function App() {
             <div className="text-pink-600 font-bold text-2xl mb-2 align-middle text-center">
               Kalpatru World
             </div>
-            <p className="text-gray-800 md:text-lg text-center  md:max-w-xl">
+            <p className="text-gray-800 md:text-lg text-center md:max-w-xl">
               Bringing culture, colors, and creativity together—our rangoli
               designs light up your celebrations with joy and elegance.
             </p>
