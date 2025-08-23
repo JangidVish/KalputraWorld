@@ -3,9 +3,6 @@ import {
   FaWhatsapp,
   FaFacebookF,
   FaPhoneAlt,
-  FaInstagram,
-  FaTwitter,
-  FaYoutube,
   FaBars,
   FaTimes,
 } from "react-icons/fa";
@@ -180,7 +177,7 @@ export default function App() {
           <FaWhatsapp size={22} />
         </a>
         <a
-          href="https://facebook.com"
+          href="https://www.facebook.com/share/15sBtPVK26/"
           className="bg-blue-600 text-white p-3 rounded-full shadow hover:bg-blue-700"
         >
           <FaFacebookF size={22} />
