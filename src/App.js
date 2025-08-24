@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import products from "./data.json";
 import {
   FaWhatsapp,
   FaFacebookF,
@@ -6,52 +7,6 @@ import {
   FaBars,
   FaTimes,
 } from "react-icons/fa";
-
-const products = [
-  {
-    name: "Decorative Corner Rangoli Mat",
-    desc: "Decorative Corner Rangoli Mat, Floral Design, Soft Fabric, Handcrafted Home Decor for Festive and Daily Use",
-    price: "₹799/-",
-    img: "corner.jpg",
-    link: "https://amzn.in/d/1xXvEnw",
-  },
-  {
-    name: "GPremium Pink Artificial Rangoli Fur Wool",
-    desc: "Premium Pink Artificial Rangoli Fur Wool for Festive Decorations & Crafts - Soft, Fluffy Yarn for DIY Designs(100 GMS) (Baby Pink)",
-    price: "₹181/-",
-    img: "Wool.jpg",
-    link: "https://amzn.in/d/5rt6YaR",
-  },
-  {
-    name: "Flower Rangoli Mat (Set of 4)",
-    desc: "Beautifully designed flower rangoli mats, perfect for festive occasions and daily use.",
-    price: "₹499/-",
-    img: "Chowki.jpg",
-    link: "https://amzn.in/d/iaMfwOB",
-  },
-  {
-    name: "Handmade Decorative Flower Rangoli Mat",
-    desc: "Handmade Decorative Flower Rangoli Mat – Multi-Color Floor Décor for Festivals, Pooja, and Home Decoration.",
-    price: "₹449/-",
-    img: "FlowerRangoli.jpg",
-    link: "https://amzn.in/d/e2eDSN0",
-  },
-  {
-    name: "Handmade Welcome Decorative Banner",
-    desc: "Handmade Welcome Decorative Banner with Flowers – Wall Hanging for Home, Office, or Festive Décor Rangoli mats.",
-    price: "₹499/-",
-    img: "Welcome.jpg",
-    link: "https://amzn.in/d/4kJwaH2",
-  },
-  {
-    name: "Decorative Half-Circle Rangoli Mat for Home Decoration",
-    desc: "Decorative Half-Circle Rangoli Mat for Home Decor – Handcrafted Design with Pink Petals – Festive Corner/Entrance Mat.",
-    price: "₹399/-",
-    img: "HalfCircle.jpg",
-    link: "https://amzn.in/d/cWGK9Ry",
-  },
-  // Add more products if needed
-];
 
 export default function App() {
   const [menuOpen, setMenuOpen] = useState(false);
